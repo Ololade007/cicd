@@ -1,0 +1,21 @@
+version : 2.1
+orbs:
+  node: circleci/node@5.0.2
+jobs: 
+  build:
+    steps :
+      - checkout
+      - run: 
+          name : install npm dependencies
+          command: |
+            npm install --save
+      -run:
+          name : finalize build
+          command:  |
+            npm run build
+workflows: 
+  build_app:
+    jobs:
+      - build
+
+
