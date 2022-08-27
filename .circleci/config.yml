@@ -3,17 +3,18 @@ orbs:
   node: circleci/node@5.0.2
 jobs: 
   build:
+    executor : node/default
     steps :
       - checkout
       - node/install-packages:
           pkg-manager: npm
       - run: 
           name : install npm dependencies
-          command: |
+          command: 
             npm install --save
       -run:
           name : finalize build
-          command:  |
+          command:  
             npm run build
 workflows: 
   build_app:
