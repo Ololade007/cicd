@@ -5,6 +5,8 @@ jobs:
   build:
     steps :
       - checkout
+      - node/install-packages:
+          pkg-manager: npm
       - run: 
           name : install npm dependencies
           command: |
