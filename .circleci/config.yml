@@ -6,16 +6,20 @@ jobs:
     executor : node/default
     steps :
       - checkout
+
       - node/install-packages:
           pkg-manager: npm
+
       - run: 
           name : install npm dependencies
           command: 
             npm install --save
-      -run:
+
+      - run:
           name : finalize build
           command:  
             npm run build
+            
 workflows: 
   build_app:
     jobs:
